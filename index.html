@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Safety Dodger – 제조업 안전 에디션</title>
+  <title>안전블록게임 – 무림 100일 무재해 도전!</title>
   <style>
     :root{color-scheme:dark light}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Apple SD Gothic Neo,Malgun Gothic,sans-serif;background:#0b1220;color:#e6eaf3}
@@ -37,7 +37,7 @@
       <!-- Game -->
       <div class="card">
         <div class="hd">
-          <div class="title">Safety Dodger – 제조업 안전 에디션</div>
+          <div class="title">안전블록게임 – 무림 100일 무재해 도전!</div>
           <div class="row">
             <button id="startBtn" class="btn green">시작하기</button>
             <button id="pauseBtn" class="btn amber">일시정지</button>
@@ -119,16 +119,16 @@
 // 안전/불안전 요소
 const HAZARDS = [
   "TBM 미실시","안전대 미착용","방호장치 임의해제","사다리 부적절 사용",
-  "추락방지난간 미설치","밀폐공간 절차 미준수","L/TO 미실시",
+  "추락방지난간 미설치","밀폐공간 절차 미준수","LO/TO 미실시",
   "보안경 미착용","소화기 미비치","작업허가서 미준수"
 ];
 const SAFETIES = [
   "TBM 실시","안전대 착용","산소/유해가스 측정","방호장치 정상가동",
-  "안전난간 설치","밀폐공간 절차 준수","L/TO 실시",
-  "PPE 착용","소화기 점검","작업허가서 준수"
+  "안전난간 설치","밀폐공간 절차 준수","LO/TO 실시",
+  "보호구 철저착용","소화기 점검","작업허가서 준수"
 ];
 
-const W=420,H=640,PW=60,PH=16,IW=54,IH=28,BASE=1.5,SPAWN=700;
+const W=420,H=640,PW=60,PH=16,IW=80,IH=40,BASE=1.5,SPAWN=700;
 const STORAGE_KEY="safety_dodger_lb_v1";
 
 const cv=document.getElementById('cv'); const ctx=cv.getContext('2d');
@@ -194,7 +194,7 @@ function loop(now){
   ctx.fillStyle='#22c55e'; ctx.fillRect(playerX,H-PH-6,PW,PH);
   for(const it of items){
     ctx.fillStyle=it.type==='hazard'?'#ef4444':'#3b82f6'; roundRect(it.x,it.y,IW,IH,6); ctx.fill();
-    ctx.fillStyle='#f9fafb'; ctx.font='12px system-ui,Segoe UI,Roboto';
+    ctx.fillStyle='#f9fafb'; ctx.font='16px system-ui,Segoe UI,Roboto';
     const label=it.label.length>12?it.label.slice(0,12)+'…':it.label;
     ctx.fillText(label,it.x+6,it.y+18);
   }
